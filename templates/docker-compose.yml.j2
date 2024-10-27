@@ -1,0 +1,29 @@
+#jinja2: trim_blocks: True, lstrip_blocks: True
+# {{ ansible_managed }}
+# {{ template_fullpath }}
+
+name: {{ docker_project_slug }}
+
+services:
+
+  uptime-kuma:
+    container_name: {{ docker_project_slug }}
+    image: louislam/uptime-kuma:{{ uptime_kuma_version }}
+    restart: always
+
+    {{ docker_project_compose_service_additional_options | indent(4) }}
+
+    volumes:
+      - ./app/data:/app/data
+
+    labels:
+      {{ traefik_project_base_labels | indent(6) }}
+
+      # What's up Docker? - https://github.com/getwud/wud
+      wud.tag.include: ^\d+$$
+      wud.watch.digest: true
+
+networks:
+  {{ docker_project_default_network | indent(2) }}
+
+{{ docker_project_compose_additional_options }}
