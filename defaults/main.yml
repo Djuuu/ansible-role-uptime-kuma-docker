@@ -6,11 +6,10 @@ uptime_kuma_project_name: uptime-kuma
 
 # Docker project dynamic vars (uses `docker_project_name` prefix, adapt if overriden)
 
+# Port targeted by Traefik router
 uptime_kuma_traefik_loadbalancer_server_port: 3001
 uptime_kuma_traefik_middlewares:
   - "internal-access@file"
-  - "allow-frames@file"
-  - "{{ docker_project_slug }}-cors@docker"
 
 # Main service additional docker-compose options (ex: cpu_shares, deploy, ...)
 uptime_kuma_compose_service_additional_options: |
