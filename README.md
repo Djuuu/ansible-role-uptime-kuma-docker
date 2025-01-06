@@ -29,7 +29,7 @@ Available role variables are listed below, along with default values (see `defau
 
 uptime_kuma_project_name: uptime-kuma
 
-# Docker project dynamic vars (uses `docker_project_name` prefix, adapt if overriden)
+# Docker project dynamic vars (uses `docker_project_name` prefix, adapt if overridden)
 
 # Port targeted by Traefik router
 uptime_kuma_traefik_loadbalancer_server_port: 3001
