@@ -12,7 +12,7 @@ uptime_kuma_traefik_middlewares:
   - "internal-access@file"
 
 # Main service additional docker-compose options (ex: cpu_shares, deploy, ...)
-uptime_kuma_compose_service_additional_options: |
+uptime_kuma_service_additional_options: |
   #ports:
   #  - "3001:3001"
 

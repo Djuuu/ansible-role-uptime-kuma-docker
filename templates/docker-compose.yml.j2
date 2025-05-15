@@ -7,11 +7,11 @@ name: {{ docker_project_slug }}
 services:
 
   uptime-kuma:
-    container_name: {{ docker_project_slug }}
     image: louislam/uptime-kuma:{{ uptime_kuma_version }}
-    restart: unless-stopped
+    container_name: {{ docker_project_slug }}
+    restart: {{ docker_project_restart }}
 
-    {{ docker_project_compose_service_additional_options | indent(4) }}
+    {{ docker_project_service_additional_options | indent(4) }}
 
     volumes:
       - ./app/data:/app/data
@@ -23,7 +23,6 @@ services:
       wud.tag.include: ^\d+$$
       wud.watch.digest: true
 
-networks:
-  {{ docker_project_default_network | indent(2) }}
+{{ docker_project_networks }}
 
 {{ docker_project_compose_additional_options }}
