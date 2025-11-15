@@ -20,4 +20,4 @@ uptime_kuma_service_additional_options: |
 # Uptime-Kuma project variables
 
 # louislam/uptime-kuma container version
-uptime_kuma_version: 1
+uptime_kuma_version: 2-slim
